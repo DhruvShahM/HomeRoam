@@ -8,7 +8,7 @@ spring:
   profiles:
     active: dev
   application:
-    name: airbnb-clone-back
+    name: homeroam-clone-back
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     hikari:
@@ -24,11 +24,11 @@ spring:
       ddl-auto: validate
     properties:
       hibernate:
-        default_schema: airbnb_clone
+        default_schema: homeroam_clone
   liquibase:
     contexts: dev
     change-log: classpath:db/changelog/master.xml
-    default-schema: airbnb_clone
+    default-schema: homeroam_clone
     enabled: true
   #    drop-first: true
   servlet:
