@@ -45,6 +45,6 @@
         <addForeignKeyConstraint baseColumnNames="fk_tenant" baseTableName="booking" constraintName="fk_tenant_id"
                                  deferrable="false"
                                  initiallyDeferred="false" referencedColumnNames="public_id"
-                                 referencedTableName="airbnb_user" validate="true"/>
+                                 referencedTableName="homeroam_user" validate="true"/>
     </changeSet>
 </databaseChangeLog>

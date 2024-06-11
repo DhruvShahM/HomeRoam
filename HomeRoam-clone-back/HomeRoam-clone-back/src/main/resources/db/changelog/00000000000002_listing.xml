@@ -52,7 +52,7 @@
         <addForeignKeyConstraint baseColumnNames="landlord_public_id" baseTableName="listing"
                                  constraintName="fk_landlord_id" deferrable="false"
                                  initiallyDeferred="false" referencedColumnNames="public_id"
-                                 referencedTableName="airbnb_user" validate="true"/>
+                                 referencedTableName="homeroam_user" validate="true"/>
     </changeSet>
 
     <changeSet id="00000000000002-seq-picture" author="codecake">

@@ -9,7 +9,7 @@
     </changeSet>
 
     <changeSet id="00000000000001-user" author="codecake">
-        <createTable tableName="airbnb_user">
+        <createTable tableName="homeroam_user">
             <column name="id" type="bigint">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
@@ -55,7 +55,7 @@
                                  baseTableName="user_authority"
                                  constraintName="fk_user_id"
                                  referencedColumnNames="id"
-                                 referencedTableName="airbnb_user"/>
+                                 referencedTableName="homeroam_user"/>
         <loadData
                 file="db/changelog/data/authority.csv"
                 separator=";"
