@@ -1,4 +1,4 @@
-package fr.codecake.HomeRoam_clone_back.infrastructure;
+package fr.codecake.HomeRoam_clone_back.infrastructure.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
