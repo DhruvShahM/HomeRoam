@@ -1,4 +1,6 @@
-import {IconName} from "@fortawesome/free-regular-svg-icons";
+import { IconName } from "@fortawesome/fontawesome-svg-core"
+
+
 
 export type CategoryName = "ALL" | "AMAZING_VIEWS" | "OMG" | "TREEHOUSES"
   | "BEACH" | "FARMS" | "TINY_HOMES" | "LAKE" | "CONTAINERS" | "CAMPING" | "CASTLE" | "SKIING"
