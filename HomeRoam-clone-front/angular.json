@@ -30,7 +30,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "./node_modules/leaflet/dist/leaflet.css",
+              "./node_modules/leaflet-geosearch/dist/geosearch.css"
             ],
             "scripts": []
           },
@@ -67,7 +69,7 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "buildTarget": "airbnb-clone-front:build",
+            "buildTarget": "HomeRoam-front:build",
             "proxyConfig": "proxy.conf.mjs"
           },
           "configurations": {

@@ -34,7 +34,9 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 npm install primeng primeflex
 ng add @fortawesome/angular-fontawesome
 npm install --save @fortawesome/free-solid-svg-icons
+npm install @asymmetrik/ngx-leaflet leaflet leaflet-geosearch
 
+npm install @types/leaflet --save-dependencies
 
 
 https://manage.auth0.com/dashboard/us/dev-co0b0k0zkjg57cnw/

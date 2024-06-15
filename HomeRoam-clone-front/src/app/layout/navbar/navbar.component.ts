@@ -9,6 +9,10 @@ import { AvatarComponent } from './avatar/avatar.component';
 import { ToastService } from '../../shared/Services/toast.service';
 import { AuthService } from '../../shared/Services/core/auth/auth.service';
 import { User } from '../../shared/Models/core/user.model';
+import {DialogService, DynamicDialogRef} from "primeng/dynamicdialog";
+import {ActivatedRoute} from "@angular/router";
+import { PropertiesCreateComponent } from '../../landlord/properties-create/properties-create.component';
+
 
 @Component({
   selector: 'app-navbar',
@@ -20,7 +24,8 @@ import { User } from '../../shared/Models/core/user.model';
     CategoryComponent,
     AvatarComponent],
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.scss'
+  styleUrl: './navbar.component.scss',
+  providers: [DialogService]
 })
 export class NavbarComponent {
   location = "Anywhere";
@@ -29,9 +34,9 @@ export class NavbarComponent {
 
   toastService = inject(ToastService);
   authService = inject(AuthService);
-  // dialogService = inject(DialogService);
-  // activatedRoute = inject(ActivatedRoute);
-  // ref: DynamicDialogRef | undefined;
+  dialogService = inject(DialogService);
+  activatedRoute = inject(ActivatedRoute);
+  ref: DynamicDialogRef | undefined;
 
   login = () => this.authService.login();
 
@@ -95,4 +100,45 @@ export class NavbarComponent {
   hasToBeLandlord(): boolean {
     return this.authService.hasAnyAuthority("ROLE_LANDLORD");
   }
+
+  openNewListing(): void {
+    this.ref = this.dialogService.open(PropertiesCreateComponent,
+      {
+        width: "60%",
+        header: "HomeLoam your home",
+        closable: true,
+        focusOnShow: true,
+        modal: true,
+        showHeader: true
+      })
+  }
+
+  // openNewSearch(): void {
+  //   this.ref = this.dialogService.open(SearchComponent,
+  //     {
+  //       width: "40%",
+  //       header: "Search",
+  //       closable: true,
+  //       focusOnShow: true,
+  //       modal: true,
+  //       showHeader: true
+  //     });
+  // }
+
+  // private extractInformationForSearch(): void {
+  //   this.activatedRoute.queryParams.subscribe({
+  //     next: params => {
+  //       if (params["location"]) {
+  //         this.location = params["location"];
+  //         this.guests = params["guests"] + " Guests";
+  //         this.dates = dayjs(params["startDate"]).format("MMM-DD")
+  //           + " to " + dayjs(params["endDate"]).format("MMM-DD");
+  //       } else if (this.location !== "Anywhere") {
+  //         this.location = "Anywhere";
+  //         this.guests = "Add guests";
+  //         this.dates = "Any week";
+  //       }
+  //     }
+  //   })
+  // }
 }

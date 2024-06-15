@@ -27,8 +27,8 @@
       </div>
       <div class="p-toolbar-group-end sm:hidden md:flex">
         @if(authService.isAuthenticated()){
-        <!-- (click)="openNewListing()" -->
-          <a class="p-button p-button-link" >HomeLoam your home</a>
+        <!--  -->
+          <a class="p-button p-button-link" (click)="openNewListing()">HomeLoam your home</a>
         }
         <p-menu #menu [model]="currentMenuItems" [popup]="true" styleClass="border-round-xl mt-1"></p-menu>
         <button (click)="menu.toggle($event)" class="menu flex align-content-center
