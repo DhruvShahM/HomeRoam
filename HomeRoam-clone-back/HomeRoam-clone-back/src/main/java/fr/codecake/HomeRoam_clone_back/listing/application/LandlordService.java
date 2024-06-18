@@ -1,12 +1,16 @@
 package fr.codecake.HomeRoam_clone_back.listing.application;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 // import jakarta.transaction.Transactional;
 import org.springframework.transaction.annotation.Transactional;
 
+import fr.codecake.HomeRoam_clone_back.listing.application.dto.CreatedListingDTO;
+import fr.codecake.HomeRoam_clone_back.listing.application.dto.DisplayCardListingDTO;
+import fr.codecake.HomeRoam_clone_back.listing.application.dto.ListingCreateBookingDTO;
 import fr.codecake.HomeRoam_clone_back.listing.application.dto.SaveListingDTO;
 import fr.codecake.HomeRoam_clone_back.listing.domain.Listing;
 import fr.codecake.HomeRoam_clone_back.listing.mapper.ListingMapper;
@@ -66,20 +70,20 @@ public class LandlordService {
         }
     }
 
-    // public Optional<ListingCreateBookingDTO> getByListingPublicId(UUID publicId) {
-    //     return listingRepository.findByPublicId(publicId).map(listingMapper::mapListingToListingCreateBookingDTO);
-    // }
+    public Optional<ListingCreateBookingDTO> getByListingPublicId(UUID publicId) {
+        return listingRepository.findByPublicId(publicId).map(listingMapper::mapListingToListingCreateBookingDTO);
+    }
 
-    // public List<DisplayCardListingDTO> getCardDisplayByListingPublicId(List<UUID> allListingPublicIDs) {
-    //     return listingRepository.findAllByPublicIdIn(allListingPublicIDs)
-    //             .stream()
-    //             .map(listingMapper::listingToDisplayCardListingDTO)
-    //             .toList();
-    // }
+    public List<DisplayCardListingDTO> getCardDisplayByListingPublicId(List<UUID> allListingPublicIDs) {
+        return listingRepository.findAllByPublicIdIn(allListingPublicIDs)
+                .stream()
+                .map(listingMapper::listingToDisplayCardListingDTO)
+                .toList();
+    }
 
-    // @Transactional(readOnly = true)
-    // public Optional<DisplayCardListingDTO> getByPublicIdAndLandlordPublicId(UUID listingPublicId, UUID landlordPublicId) {
-    //     return listingRepository.findOneByPublicIdAndLandlordPublicId(listingPublicId, landlordPublicId)
-    //             .map(listingMapper::listingToDisplayCardListingDTO);
-    // }
+    @Transactional(readOnly = true)
+    public Optional<DisplayCardListingDTO> getByPublicIdAndLandlordPublicId(UUID listingPublicId, UUID landlordPublicId) {
+        return listingRepository.findOneByPublicIdAndLandlordPublicId(listingPublicId, landlordPublicId)
+                .map(listingMapper::listingToDisplayCardListingDTO);
+    }
 }

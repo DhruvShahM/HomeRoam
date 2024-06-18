@@ -158,7 +158,7 @@ export class CategoryService {
     return this.categories[0];
   }
 
-  getCategoryByTechnicalName(technicalName: CategoryName): Category | undefined {
+  getCategoryByTechnicalName(technicalName: string): Category | undefined {
     return this.categories.find(category => category.technicalName === technicalName);
   }
 }

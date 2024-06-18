@@ -1,14 +1,15 @@
-// package fr.codecake.HomeRoam_clone_back.booking.mapper;
+package fr.codecake.HomeRoam_clone_back.booking.mapper;
 
-// import org.mapstruct.Mapper;
-// import org.springframework.data.jpa.repository.JpaRepository;
+import org.mapstruct.Mapper;
 
-// import fr.codecake.HomeRoam_clone_back.booking.domain.Booking;
+import fr.codecake.HomeRoam_clone_back.booking.application.dto.BookedDateDTO;
+import fr.codecake.HomeRoam_clone_back.booking.application.dto.NewBookingDTO;
+import fr.codecake.HomeRoam_clone_back.booking.domain.Booking;
 
-// @Mapper(componentModel = "spring")
-// public interface BookingMapper extends JpaRepository<Booking,Long> {
+@Mapper(componentModel = "spring")
+public interface BookingMapper  {
 
-//     // Booking newBookingToBooking(NewBookingDTO newBookingDTO);
+    Booking newBookingToBooking(NewBookingDTO newBookingDTO);
 
-//     // BookedDateDTO bookingToCheckAvailability(Booking booking);
-// }
+    BookedDateDTO bookingToCheckAvailability(Booking booking);
+}

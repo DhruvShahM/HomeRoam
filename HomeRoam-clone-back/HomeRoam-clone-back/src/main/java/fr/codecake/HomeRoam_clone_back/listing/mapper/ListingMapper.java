@@ -5,11 +5,15 @@ import java.util.List;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-import fr.codecake.HomeRoam_clone_back.listing.application.CreatedListingDTO;
-import fr.codecake.HomeRoam_clone_back.listing.application.DisplayCardListingDTO;
+import fr.codecake.HomeRoam_clone_back.listing.DisplayListingDTO;
+import fr.codecake.HomeRoam_clone_back.listing.application.dto.CreatedListingDTO;
+import fr.codecake.HomeRoam_clone_back.listing.application.dto.DisplayCardListingDTO;
+import fr.codecake.HomeRoam_clone_back.listing.application.dto.ListingCreateBookingDTO;
 import fr.codecake.HomeRoam_clone_back.listing.application.dto.SaveListingDTO;
 import fr.codecake.HomeRoam_clone_back.listing.application.dto.vo.PriceVO;
 import fr.codecake.HomeRoam_clone_back.listing.domain.Listing;
+
+
 
 @Mapper(componentModel = "spring", uses = {ListingPictureMapper.class})
 public interface ListingMapper {
@@ -42,17 +46,17 @@ public interface ListingMapper {
         return new PriceVO(price);
     }
 
-    // @Mapping(target = "landlord", ignore = true)
-    // @Mapping(target = "description.title.value", source = "title")
-    // @Mapping(target = "description.description.value", source = "description")
-    // @Mapping(target = "infos.bedrooms.value", source = "bedrooms")
-    // @Mapping(target = "infos.guests.value", source = "guests")
-    // @Mapping(target = "infos.beds.value", source = "beds")
-    // @Mapping(target = "infos.baths.value", source = "bathrooms")
-    // @Mapping(target = "category", source = "bookingCategory")
-    // @Mapping(target = "price.value", source = "price")
-    // DisplayListingDTO listingToDisplayListingDTO(Listing listing);
+    @Mapping(target = "landlord", ignore = true)
+    @Mapping(target = "description.title.value", source = "title")
+    @Mapping(target = "description.description.value", source = "description")
+    @Mapping(target = "infos.bedrooms.value", source = "bedrooms")
+    @Mapping(target = "infos.guests.value", source = "guests")
+    @Mapping(target = "infos.beds.value", source = "beds")
+    @Mapping(target = "infos.baths.value", source = "bathrooms")
+    @Mapping(target = "category", source = "bookingCategory")
+    @Mapping(target = "price.value", source = "price")
+    DisplayListingDTO listingToDisplayListingDTO(Listing listing);
 
-    // @Mapping(target = "listingPublicId", source = "publicId")
-    // ListingCreateBookingDTO mapListingToListingCreateBookingDTO(Listing listing);
+    @Mapping(target = "listingPublicId", source = "publicId")
+    ListingCreateBookingDTO mapListingToListingCreateBookingDTO(Listing listing);
 }

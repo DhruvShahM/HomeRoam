@@ -35,9 +35,16 @@ export class CategoryComponent {
       filter((evt): evt is NavigationEnd => evt instanceof NavigationEnd)
     )
       .subscribe({
-        next: (evt: NavigationEnd) => {
+        next: (evt: NavigationEnd ) => {
           this.isHome = evt.url.split("?")[0] === "/";
-          if (this.isHome && evt.url.indexOf("?") === -1) {
+          // && evt.url.indexOf("?") === -1
+          if (this.isHome && evt.url!=='/') {
+            const categoryName=evt.url.replace("/?category=","");
+            const categoryByTechnicalName = this.categoryService.getCategoryByTechnicalName(categoryName);
+            this.categoryService.changeCategory(categoryByTechnicalName!);
+          }
+          
+          if(evt.url==='/'){
             const categoryByTechnicalName = this.categoryService.getCategoryByTechnicalName("ALL");
             this.categoryService.changeCategory(categoryByTechnicalName!);
           }

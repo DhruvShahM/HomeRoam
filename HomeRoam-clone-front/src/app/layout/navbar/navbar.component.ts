@@ -12,6 +12,8 @@ import { User } from '../../shared/Models/core/user.model';
 import {DialogService, DynamicDialogRef} from "primeng/dynamicdialog";
 import {ActivatedRoute} from "@angular/router";
 import { PropertiesCreateComponent } from '../../landlord/properties-create/properties-create.component';
+import dayjs from 'dayjs';
+import { SearchComponent } from '../../tenant/search/search.component';
 
 
 @Component({
@@ -113,32 +115,33 @@ export class NavbarComponent {
       })
   }
 
-  // openNewSearch(): void {
-  //   this.ref = this.dialogService.open(SearchComponent,
-  //     {
-  //       width: "40%",
-  //       header: "Search",
-  //       closable: true,
-  //       focusOnShow: true,
-  //       modal: true,
-  //       showHeader: true
-  //     });
-  // }
+  openNewSearch(): void {
+    this.ref = this.dialogService.open(SearchComponent,
+      {
+        width: "40%",
+        header: "Search",
+        closable: true,
+        focusOnShow: true,
+        modal: true,
+        showHeader: true
+      });
+  }
 
-  // private extractInformationForSearch(): void {
-  //   this.activatedRoute.queryParams.subscribe({
-  //     next: params => {
-  //       if (params["location"]) {
-  //         this.location = params["location"];
-  //         this.guests = params["guests"] + " Guests";
-  //         this.dates = dayjs(params["startDate"]).format("MMM-DD")
-  //           + " to " + dayjs(params["endDate"]).format("MMM-DD");
-  //       } else if (this.location !== "Anywhere") {
-  //         this.location = "Anywhere";
-  //         this.guests = "Add guests";
-  //         this.dates = "Any week";
-  //       }
-  //     }
-  //   })
-  // }
+  private extractInformationForSearch(): void {
+    this.activatedRoute.queryParams.subscribe({
+      next: params => {
+        debugger
+        if (params["location"]) {
+          this.location = params["location"];
+          this.guests = params["guests"] + " Guests";
+          this.dates = dayjs(params["startDate"]).format("MMM-DD")
+            + " to " + dayjs(params["endDate"]).format("MMM-DD");
+        } else if (this.location !== "Anywhere") {
+          this.location = "Anywhere";
+          this.guests = "Add guests";
+          this.dates = "Any week";
+        }
+      }
+    })
+  }
 }

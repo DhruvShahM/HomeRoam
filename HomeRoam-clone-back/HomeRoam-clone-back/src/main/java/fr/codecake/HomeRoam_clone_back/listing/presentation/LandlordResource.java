@@ -25,9 +25,9 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import fr.codecake.HomeRoam_clone_back.infrastructure.config.SecurityUtils;
-import fr.codecake.HomeRoam_clone_back.listing.application.CreatedListingDTO;
-import fr.codecake.HomeRoam_clone_back.listing.application.DisplayCardListingDTO;
 import fr.codecake.HomeRoam_clone_back.listing.application.LandlordService;
+import fr.codecake.HomeRoam_clone_back.listing.application.dto.CreatedListingDTO;
+import fr.codecake.HomeRoam_clone_back.listing.application.dto.DisplayCardListingDTO;
 import fr.codecake.HomeRoam_clone_back.listing.application.dto.SaveListingDTO;
 import fr.codecake.HomeRoam_clone_back.listing.application.dto.sub.PictureDTO;
 import fr.codecake.HomeRoam_clone_back.sharedkernel.service.State;

@@ -1,4 +1,4 @@
-package fr.codecake.HomeRoam_clone_back.listing.application;
+package fr.codecake.HomeRoam_clone_back.listing.application.dto;
 
 import java.util.UUID;
 
